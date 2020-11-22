@@ -106,6 +106,72 @@ school_districts.CCD.enrollment(year=2011, grade=8, disaggregations=['age'], fil
 There was definitely some copy and pasting and I think I can pull some repeated code out into functions during a refactor. But for now, it works.  
 
 ---
+
+I refactored the `school_districts` code to minimize repetition. This involved adding a `utils.py` file with a new `Url` class to build the urls (which meant I could get rid of the initial `config.py`file that had just the base url) and a method `getPaginatedResults(url)` for returning the results of all the pages by following the pagination links.
+
+Next, I am going to implement the `school` topic and its endpoints.
+
+## [Schools](https://educationdata.urban.org/documentation/schools.html)
+
+### Sources
+- [Common Core of Data](https://nces.ed.gov/ccd/): `/ccd`
+- [Small Area Income and Poverty Estimates](https://www.census.gov/programs-surveys/saipe.html): `/saipe`
+- [EDFacts](https://www2.ed.gov/about/inits/ed/edfacts/index.html): `/edfacts`
+- [National Historical Geographic Information System](https://www.nhgis.org/): `/nhgis`
+
+### `/ccd`
+- Directory: `/directory`
+  - Required: year
+- Enrollment: `/enrollment`
+  - Required: year, grade
+  - Disaggregations: race, sex
+
+### `/crdc`
+- Directory: `/directory`
+  - Required: year
+- Enrollment: `/enrollment`
+  - Required: year, 2 disaggregations
+  - Disaggregations: race, sex, disability, LEP
+- Discipline: `/discipline`
+  - Required: year, 2 disaggregations
+  - Disaggregations: disability, sex, race, LEP
+- Harrasment or Bullying: `/harassment-or-bullying`
+  - Required: year
+  - `/allegations`
+  - Disaggregations: race, sex, disability, LEP (2 at a time)
+- Chronic Absenteeism: `/chronic-absenteeism`
+  - Required: year
+  - Disaggregations: race, disability, sex, LEP
+- Restraint and Seclusion: `/restraint-and-seclusion`
+  - Required: year
+  - `/instances`
+  - Disaggregations: race, sex, disability, LEP
+- AP, IB, and GT Enrollment: `/ap-ib-enrollment`
+  - Required: year, 2 disaggregations
+  - Disaggregations: race, sex, disability, LEP
+- AP Exams: `/ap-exams`
+  - Required: year, 2 disaggregations
+  - Disaggregations: race, sex, disability, LEP
+- SAT and ACT Participation: `/sat-act-participation`
+  - Required: year, 2 disaggregations
+  - Disaggregations: race, sex, disability, LEP
+
+### `/edfacts`
+- State Assessments: `/assessments
+  - Required: year, grade
+  - Disaggregations: race, sex, special populations
+
+### `/nhgis`
+- Geographic Variables
+  - 2010 Census Geographies: `/census-2010`
+    - Required: year (up to 2016)
+  - 2010 Census Geographies: `/census-2000`
+    - Required: year (up to 2016)
+  - 2010 Census Geographies: `/census-1990`
+    - Required: year (up to 2016)
+    
+--
+
 ## Appendix 
 ### Existing Data Tools
 - [NAEP data explorer](https://www.nationsreportcard.gov/ndecore/landing)
@@ -142,6 +208,7 @@ There was definitely some copy and pasting and I think I can pull some repeated 
 - **SAIPE**: Small Area Income and Poverty Estimates Program
 - **MBK**: My Brother's Keeper
 - **CCD**: Common Core of Data
+- **LEP**: Limited English Proficiency
 
 
 
