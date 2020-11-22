@@ -1,5 +1,7 @@
 In October, I submitted my project plan for visualizing education inequality based on US Department of Education data. I anticipated downloading Excel files or being able to install a Python package to interact with the data APIs. I found a GitHub site with Department of Education APIs, but none of the APIs worked. As a software engineer, I resist working with spreadsheets at all costs, and I also found select visualizations already available on Department of Education data dashboards. I did end up finding an API published by a DC think tank, the Urban Institute, that collates the various sources I had found while considering building an API myself. The Urban Institute has a R and Stata package for their API but nothing for Python or JavaScript. Since I am currently working with Python at the Census Bureau, I decided to continute developing my Python skills and learn how build my first package. My goal became to build a package to wrap the Urban Institute education data API and make it easier to work with in Python. The package will be public so anyone looking to work with US education data would be able to find and use it, thus fulfilling the community engagement portion of this assignment.
 
+The python package is now live at [https://pypi.org/project/us-school-data-api/0.0.1/](https://pypi.org/project/us-school-data-api/0.0.1/).
+
 # Journal
 
 All of the US Department of Education and Data.gov APIs listed [here](https://usedgov.github.io/api/) are down. I [requested an API Key](https://api.data.gov/signup/) and tested each API endpoint with no success.
@@ -174,7 +176,7 @@ Next, I am going to implement the `school` topic and its endpoints.
     
 --
 
-I'm on to the last substantive part of the API wrapper, which is the colleges topic. I still need to go back and write tests for the endpoints in the schools and school districts topics.  The colleges topic has the most endpoints, so it might take longer than the last two to complete. 
+I've decided to deploy the package with the school and school-districts topics complete, since my original goal was to simplify accessing school data. This leaves off the college topic and its endpoints, but I may get around to adding that later. I've already spent a lot of time on this project, so I want to move on to the publishing and reflection portion of the project.
 
 --
 
