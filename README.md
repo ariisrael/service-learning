@@ -2,7 +2,7 @@ In October, I submitted my project plan for visualizing education inequality bas
 
 Throughout this process, I learned about the different U.S. government agencies involved in collecting and publishing education data. I also learned about the Urban Institute, which fills the gaps left by broken APIs and archaic interfaces built by making an API available that collates the various data sources published by the Department of Education, Census Bureau and other agencies.
 
-The python package is now live at [https://pypi.org/project/us-school-data-api/0.0.1/](https://pypi.org/project/us-school-data-api/0.0.1/).
+The python package is now live at [https://pypi.org/project/us-school-data-api/0.0.1/](https://pypi.org/project/us-school-data-api/0.0.1/). The code for my package is available at [https://github.com/ariisrael/us-education-data-api](https://github.com/ariisrael/us-education-data-api).
 
 # Journal
 
