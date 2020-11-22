@@ -80,10 +80,12 @@ This will be the first package I am publishing in Python, so I've been consultin
 ### `/edfacts`
 - State Assessments: `/assessments`
   - Required: year and grade
+  - Disaggregations: race and sex
 
 ### `/saipe`
 - Poverty Assessments: `/`
   - Required: year
+  - Disaggregations: race, sex, and special populations
 
 ### `/ccd`
 - Directory: `/directory`
@@ -170,6 +172,10 @@ Next, I am going to implement the `school` topic and its endpoints.
   - 2010 Census Geographies: `/census-1990`
     - Required: year (up to 2016)
     
+--
+
+I'm on to the last substantive part of the API wrapper, which is the colleges topic. I still need to go back and write tests for the endpoints in the schools and school districts topics.  The colleges topic has the most endpoints, so it might take longer than the last two to complete. 
+
 --
 
 ## Appendix 
