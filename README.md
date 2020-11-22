@@ -96,13 +96,15 @@ This will be the first package I am publishing in Python, so I've been consultin
 There are also additional filter parameters for each endpoint that I will deal with later. Right now, my priority will be to wrap the three school district source endpoints and set up the basic package structure and syntax.
 
 I registered for an Python Package Index account so I will be able to upload and distribute my package. I now have a [public profile](https://pypi.org/user/ariisrael/) which will show my package once it is public. I also created an account on the [testing site for PyPI](https://test.pypi.org/), so I can confirm that my package setup works and test it out before releasing. I also created [package repository](https://github.com/ariisrael/us-education-data-api), obviously to be kept separate from this service learning journal. 
+
 ---
-I now have the package working for the school_districts endpoints. I didn't even realize this data was paginated, but it makes sense due to the size of the responses (especially for unfiltered queries). My API wrapper goes through the pages to return the entire dataset so the data scientist does not need to write any logic to follow `next` from the response. To expand the earlier example of accessing Common Core of Data (CCD) enrollment, you can now get the school district enrollment by year (2011) and grade (8) with disaggregations (age) and filtering (in this case, limiting the query to Alabama):
+I now have the package working for the school districts endpoints. I didn't even realize this data was paginated, but it makes sense due to the size of the responses (especially for unfiltered queries). My API wrapper goes through the pages to return the entire dataset so the data scientist does not need to write any logic to follow `next` from the response. To expand the earlier example of accessing Common Core of Data (CCD) enrollment, you can now get the school district enrollment by year (2011) and grade (8) with disaggregations (age) and filtering (in this case, limiting the query to Alabama):
 ```python
 from uied import school_districts
 school_districts.CCD.enrollment(year=2011, grade=8, disaggregations=['age'], filters={ fips: 1 })
 ```
 There was definitely some copy and pasting and I think I can pull some repeated code out into functions during a refactor. But for now, it works.  
+
 ---
 ## Appendix 
 ### Existing Data Tools
